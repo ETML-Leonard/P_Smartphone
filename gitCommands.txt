@@ -1,0 +1,4 @@
+cd P_Smartphone/
+git add *
+$ git commit -m "ajout de la database mec"
+$ git push origin main
