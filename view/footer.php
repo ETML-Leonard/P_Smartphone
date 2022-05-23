@@ -1,6 +1,6 @@
 <!-- Site footer -->
 <footer class="footer">
-    <p>&copy; Jonathan, Bruno, Nicolas et Léonard 2022</p>
+    <p>&copy; Léonard, Veprim, Bruno, Dylan 2022</p>
 </footer>
 
 </div> <!-- /container -->

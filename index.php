@@ -4,7 +4,7 @@
  * ETML
  * Auteur :  Jonathan Dale
  * Date: 01.04.2022
- * Site web en MVC et orienté objet sur les Mercedes AMG
+ * Site web en MVC et orienté objet sur les Smartphones
  */
 
 $debug = true;

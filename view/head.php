@@ -8,7 +8,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>AMG<?php if(isset( $_GET["action"])) echo " :: " . $_GET["action"] ?></title>
+    <title>DigiFlex<?php if(isset( $_GET["action"])) echo " :: " . $_GET["action"] ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">

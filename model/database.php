@@ -63,13 +63,13 @@ class Database
 	}
 
 	//Get the number of cars contained in the database
-	public function getTotalNumOfCars()
+	public function getTotalNumOfPhones()
 	{
 		return ($this->querySimpleExecute("SELECT COUNT(*) FROM db_mercedesamg.t_car;"))[0]["COUNT(*)"];
 	}
 
 	//Function to get a specific number of cars starting from an index
-	public function getCarsFromIndex($idStart)
+	public function getPhonesFromIndex($idStart)
 	{
 		if (is_numeric($idStart)) {
 			$countOfCars = $this->getTotalNumOfCars();
@@ -84,7 +84,7 @@ class Database
 	}
 
 	//Function to retrieve all information about a specific car
-	public function getOneCar($idCar)
+	public function getOnePhone($idCar)
 	{
 		$car = $this->queryPrepareExecute(
 			"SELECT idCar, carModel, carBodywork, carNumberDoors, carNumberOfSeats,
@@ -93,45 +93,5 @@ class Database
 			array(array(":id", $idCar, PDO::PARAM_INT))
 		);
 		return $car[0];
-	}
-
-	public function getCommentsForCar($idCar)
-	{
-		$comments = $this->queryPrepareExecute(
-			"SELECT idComment, comCommentText, comDatePost, idUser FROM db_mercedesamg.t_comment WHERE idCar = :id",
-			array(array(":id", $idCar, PDO::PARAM_INT))
-		);
-		return $comments;
-	}
-
-	public function getUsernameFromId($idUser)
-	{
-		$username = $this->queryPrepareExecute(
-			"SELECT userNickname FROM db_mercedesamg.t_user WHERE idUser = :id",
-			array(array(":id", $idUser, PDO::PARAM_INT))
-		);
-		return $username[0]["userNickname"];
-	}
-
-	public function createNewUser($username, $name, $surname, $email, $psw)
-	{
-		$this->queryPrepareExecute("INSERT INTO db_mercedesamg.t_user (userMail, userNickname, userFirstname, userSurname, userPassword) VALUES
-		 (:email, :username, :name, :surname, :psw)", array(
-			array(":email", $email, PDO::PARAM_STR), array(":username", $username, PDO::PARAM_STR),
-			array(":name", $name, PDO::PARAM_STR), array(":surname", $surname, PDO::PARAM_STR), array(":psw", $psw, PDO::PARAM_STR)
-		));
-	}
-
-	public function loginUser($email, $psw)
-	{
-		$login = $this->queryPrepareExecute("SELECT userPassword FROM db_mercedesamg.t_user WHERE userMail = :mail",  array(array(":mail", $email, PDO::PARAM_STR)));
-		
-		if ($login) {
-			$password = $login[0]["userPassword"];
-			if (password_verify($psw, $password)) {
-				return true;
-			}
-		}
-		return false;
 	}
 }
