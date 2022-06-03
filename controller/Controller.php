@@ -1,6 +1,6 @@
 <?php
 /**
- * Auteur : Cindy Hardegger
+ * Auteur : Frauchiger Léonard
  * Date: 04.04.2022
  * Contrôleur principal
  */

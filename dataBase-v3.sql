@@ -20,7 +20,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON `db_Smartphones`.* TO 'dbUser_Smartphone
 
 
 -- Tables Section
--- _____________ 
+-- _____________ S
 
 create table Choisir (
      idCommande int(11) NOT NULL,
@@ -46,14 +46,13 @@ create table t_phone (
      idPhone int(11) NOT NULL,
      phoName varchar(25) not null,
      phoBrand varchar(25) not null,
-     phoPrice int not null,
      phoColor varchar(20) not null,
      phoOs varchar(10) not null,
      phoSize int(11) NOT NULL,
      phoCpu varchar(50) not null,
      phoStorage int(11) not null,
      phoPriceMSRP decimal(7,2) not null,
-	 phoPrice decimal(7,2) not null,
+	phoPrice decimal(7,2) not null,
      phoDefinition varchar(15) not null,
      phoScreenSize decimal(2,1) not null,
      phoCores int(11) not null,
