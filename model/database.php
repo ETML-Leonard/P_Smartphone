@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Auteur : Jonathan Dale
+ * Auteur : Léonard Frauchiger
  * Date : 07.03.2022
  * Description : File to handle database queries
  */
@@ -14,7 +14,7 @@ class Database
 	public function __construct()
 	{
 		try {
-			$this->connector = new PDO('mysql:host=localhost;dbname=db_mercedesamg;charset=utf8', 'dbUser_AMG', '.Etml-');
+			$this->connector = new PDO('mysql:host=localhost;dbname=db_Smartphones;charset=utf8', 'dbUser_Smartphones', '.Etml-');
 		} catch (PDOException $e) {
 			die('Erreur : ' . $e->getMessage());
 		}
@@ -65,33 +65,32 @@ class Database
 	//Get the number of cars contained in the database
 	public function getTotalNumOfPhones()
 	{
-		return ($this->querySimpleExecute("SELECT COUNT(*) FROM db_mercedesamg.t_car;"))[0]["COUNT(*)"];
+		return ($this->querySimpleExecute("SELECT COUNT(*) FROM db_Smartphones.t_phone;"))[0]["COUNT(*)"];
 	}
 
 	//Function to get a specific number of cars starting from an index
 	public function getPhonesFromIndex($idStart)
 	{
 		if (is_numeric($idStart)) {
-			$countOfCars = $this->getTotalNumOfCars();
-			$carData = [];
+			$phoneData = [];
 			for ($i = $idStart; $i < $idStart + 12; $i++) {
-				$car = $this->queryPrepareExecute("SELECT idCar, carModel, carPrice, carEngineHorsePower, carMaxSpeed,
-				carZeroToHundredKM FROM db_mercedesamg.t_car WHERE idCar = :id", array(array(":id", $i, PDO::PARAM_INT)));
-				$carData[$i] = $car;
+				$car = $this->queryPrepareExecute("SELECT idPhone, phoName, phoPriceMSRP, phoBrand, phoAutonomy,
+				phoScreenTechnology FROM db_Smartphones.t_phone WHERE idPhone = :id", array(array(":id", $i, PDO::PARAM_INT)));
+				$phoneData[$i] = $car;
 			}
-			return $carData;
+			return $phoneData;
 		}
 	}
 
 	//Function to retrieve all information about a specific car
-	public function getOnePhone($idCar)
+	public function getOnePhone($idPhone)
 	{
-		$car = $this->queryPrepareExecute(
-			"SELECT idCar, carModel, carBodywork, carNumberDoors, carNumberOfSeats,
-		carConsumptionPerHundred, carDimension, carEngineCubicSize, carNbEngineCylinder, carEngineHorsePower,
-		carCouple, carMaxSpeed, carZeroToHundredKM, carWeight, carPrice, carMark, carDescription FROM db_mercedesamg.t_car WHERE idCar = :id",
-			array(array(":id", $idCar, PDO::PARAM_INT))
+		$phone = $this->queryPrepareExecute(
+			"SELECT idPhone, phoName, phoBrand, phoColor, phoOs,
+		phoSize, phoCpu, phoStorage, phoPriceMSRP, phoPrice,
+		phoDefinition, phoScreenSize, phoCores, phoAutonomy, phoRam, phoScreenTechnology, phoConnectivity,phoCameraQuality FROM db_Smartphones.t_phone WHERE idPhone = :id",
+			array(array(":id", $idPhone, PDO::PARAM_INT))
 		);
-		return $car[0];
+		return $phone[0];
 	}
 }
