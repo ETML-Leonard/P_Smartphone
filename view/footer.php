@@ -1,6 +1,6 @@
 <!-- Site footer -->
 <footer class="footer">
-    <p>&copy; Léonard, Veprim, Bruno, Dylan 2022</p>
+<p>&copy; Léonard Frauchiger, Veprim Kadiroli, Bruno Grin, Dylan Bontems 2022</p>
 </footer>
 
 </div> <!-- /container -->
