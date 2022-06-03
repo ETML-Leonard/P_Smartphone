@@ -15,7 +15,7 @@
 
 CREATE DATABASE IF NOT EXISTS db_Smartphones DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; 
 
-CREATE USER IF NOT EXISTS 'dbUser_Smartphones'@'localhost' IDENTIFIED BY '.Etml-';
+CREATE USER IF NOT EXISTS `dbUser_Smartphones`@`localhost` IDENTIFIED BY '.Etml-';
 GRANT SELECT, INSERT, UPDATE, DELETE ON `db_Smartphones`.* TO 'dbUser_Smartphones'@'localhost';
 
 
