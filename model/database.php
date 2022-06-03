@@ -75,7 +75,7 @@ class Database
 			$phoneData = [];
 			for ($i = $idStart; $i < $idStart + 12; $i++) {
 				$car = $this->queryPrepareExecute("SELECT idPhone, phoName, phoPriceMSRP, phoBrand, phoAutonomy,
-				phoScreenTechnology FROM db_Smartphones.t_phone WHERE idPhone = :id", array(array(":id", $i, PDO::PARAM_INT)));
+				phoScreenTechnology, phoOs FROM db_Smartphones.t_phone WHERE idPhone = :id", array(array(":id", $i, PDO::PARAM_INT)));
 				$phoneData[$i] = $car;
 			}
 			return $phoneData;

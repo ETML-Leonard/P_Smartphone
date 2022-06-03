@@ -20,7 +20,7 @@ date_default_timezone_set('Europe/Zurich');
 include_once 'controller/Controller.php';
 include_once 'controller/HomeController.php';
 include_once 'controller/PhoneController.php';
-include_once 'controller/AccountController.php';
+
 
 
 class MainController
